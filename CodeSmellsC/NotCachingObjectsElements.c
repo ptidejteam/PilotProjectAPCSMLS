@@ -5,9 +5,9 @@
 
 #include "..\CodeSmellsJNI\bin\codeSmellsJava_NotCachingObjectsElements.h"
 
-jint JNICALL Java_codeSmellsJava_NotCachingObjectsElements_sumValues
-(JNIEnv* env, jobject obj){
-	jclass cls = (*env)->GetObjectClass(env,obj);
+jint JNICALL Java_codeSmellsJava_NotCachingObjectsElements_sumValues(
+		JNIEnv* env, jobject obj) {
+	jclass cls = (*env)->GetObjectClass(env, obj);
 	jfieldID a = (*env)->GetFieldID(env, cls, "a", "I");
 	jfieldID b = (*env)->GetFieldID(env, cls, "b", "I");
 	jfieldID c = (*env)->GetFieldID(env, cls, "c", "I");

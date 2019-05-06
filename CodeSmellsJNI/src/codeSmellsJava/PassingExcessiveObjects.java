@@ -3,7 +3,7 @@ package codeSmellsJava;
 import java.security.AccessController;
 import java.security.PrivilegedAction;
 
-public class PassiveExcessiveObjects {
+public class PassingExcessiveObjects {
 
 	static {
 		AccessController.doPrivileged(new PrivilegedAction<Void>() {
@@ -14,7 +14,7 @@ public class PassiveExcessiveObjects {
 		});
 	}
 
-	private class NestedClass {
+	private class NestedClass extends Object {
 		int a = 1;
 		int b = 2;
 		int c = 3;
@@ -23,12 +23,12 @@ public class PassiveExcessiveObjects {
 		int f = 6;
 	}
 
-	public native int sumValues();
+	public native int sumValues(Object anObject);
 
 	public static void main(String args[]) {
-		PassiveExcessiveObjects test = new PassiveExcessiveObjects();
-		NestedClass nested = new NestedClass();
-		System.out.println("The sum is " + test.sumValues());	  
+		PassingExcessiveObjects test = new PassingExcessiveObjects();
+		NestedClass nested = test.new NestedClass();
+		System.out.println("The sum is " + test.sumValues(nested));
 	}
 
 }

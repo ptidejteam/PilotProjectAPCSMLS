@@ -5,20 +5,20 @@
 
 #include "..\CodeSmellsJNI\bin\codeSmellsJava_PassingExcessiveObjects.h"
 
-jint JNICALL Java_codeSmellsJava_PassingExcessiveObjects_sumValues
-(JNIEnv* env, jobject obj){
-	jclass cls = (*env)->GetObjectClass(env,obj);
+jint JNICALL Java_codeSmellsJava_PassingExcessiveObjects_sumValues(JNIEnv* env,
+		jobject obj, jobject allValues) {
+	jclass cls = (*env)->GetObjectClass(env, allValues);
 	jfieldID a = (*env)->GetFieldID(env, cls, "a", "I");
 	jfieldID b = (*env)->GetFieldID(env, cls, "b", "I");
 	jfieldID c = (*env)->GetFieldID(env, cls, "c", "I");
 	jfieldID d = (*env)->GetFieldID(env, cls, "d", "I");
 	jfieldID e = (*env)->GetFieldID(env, cls, "e", "I");
 	jfieldID f = (*env)->GetFieldID(env, cls, "f", "I");
-	jint avalue = (*env)->GetIntField(env, obj, a);
-	jint bvalue = (*env)->GetIntField(env, obj, b);
-	jint cvalue = (*env)->GetIntField(env, obj, c);
-	jint dvalue = (*env)->GetIntField(env, obj, d);
-	jint evalue = (*env)->GetIntField(env, obj, e);
-	jint fvalue = (*env)->GetIntField(env, obj, f);
+	jint avalue = (*env)->GetIntField(env, allValues, a);
+	jint bvalue = (*env)->GetIntField(env, allValues, b);
+	jint cvalue = (*env)->GetIntField(env, allValues, c);
+	jint dvalue = (*env)->GetIntField(env, allValues, d);
+	jint evalue = (*env)->GetIntField(env, allValues, e);
+	jint fvalue = (*env)->GetIntField(env, allValues, f);
 	return avalue + bvalue + cvalue + dvalue + evalue + fvalue;
 }

@@ -22,11 +22,11 @@ public class LocalReferencesAbuse {
 		LocalReferencesAbuse test = new LocalReferencesAbuse();
 		int length = 100;
 		Integer[] numbers = new Integer[length];
-		for(int i=0; i < length; i++)
+		for (int i = 0; i < length; i++)
 			numbers[i] = i;
-		if(test.goThroughArray(numbers) == 0)
-			System.out.println("Test of code smell \"Local References Abuse\"");	
+		if (test.goThroughArray(numbers) == 0)
+			System.out.println("Test of code smell \"Local References Abuse\"");
 		else
-			System.out.println("Problem in test of code smell \"Local References Abuse\""); 
+			System.out.println("Problem in test of code smell \"Local References Abuse\"");
 	}
 }

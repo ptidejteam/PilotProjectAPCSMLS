@@ -15,7 +15,7 @@ public class MemoryManagementMismatch {
 	}
 
 	native void printStringInC(String msg);
-	
+
 	public static void main(String args[]) {
 		MemoryManagementMismatch test = new MemoryManagementMismatch();
 		test.printStringInC("This String should be printed in C code.");

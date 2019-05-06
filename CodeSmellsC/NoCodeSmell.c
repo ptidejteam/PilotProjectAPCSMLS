@@ -1,4 +1,3 @@
-
 #include <jni.h>
 #include <stdio.h>
 
@@ -6,8 +5,8 @@
 
 /****************************************** Sayhello ******************************/
 
-// JNIEXPORT jstring Java_noCodeSmell_NoCodeSmell_sayHello(JNIEnv *env, jobject thisObj, jstring inJNIStr) {
-JNIEXPORT jstring JNICALL Java_noCodeSmell_NoCodeSmell_sayHello(JNIEnv *env, jobject thisObj, jstring inJNIStr) {
+JNIEXPORT jstring JNICALL Java_noCodeSmell_NoCodeSmell_sayHello(JNIEnv *env,
+		jobject thisObj, jstring inJNIStr) {
 	// Step 1: Convert the JNI String (jstring) into C-String (char*)
 	const char *inCStr = (*env)->GetStringUTFChars(env, inJNIStr, NULL);
 	//  if (NULL == inCSt) return NULL;
@@ -26,27 +25,27 @@ JNIEXPORT jstring JNICALL Java_noCodeSmell_NoCodeSmell_sayHello(JNIEnv *env, job
 }
 
 /****************************************** Average ******************************/
-JNIEXPORT jdouble JNICALL Java_noCodeSmell_NoCodeSmell_average
-(JNIEnv *env, jobject thisObj, jint n1, jint n2) {
+JNIEXPORT jdouble JNICALL Java_noCodeSmell_NoCodeSmell_average(JNIEnv *env,
+		jobject thisObj, jint n1, jint n2) {
 	jdouble result;
 	printf("In C, the numbers are %d and %d\n", n1, n2);
-	result = ((jdouble)n1 + n2) / 2.0;
+	result = ((jdouble) n1 + n2) / 2.0;
 	// jint is mapped to int, jdouble is mapped to double
 	return result;
 }
 
-
 /****************************************** AccessValue ******************************/
 
-JNIEXPORT void JNICALL Java_noCodeSmell_NoCodeSmell_modifyInstanceVariable
-(JNIEnv *env, jobject thisObj) {
+JNIEXPORT void JNICALL Java_noCodeSmell_NoCodeSmell_modifyInstanceVariable(
+		JNIEnv *env, jobject thisObj) {
 	// Get a reference to this object's class
 	jclass thisClass = (*env)->GetObjectClass(env, thisObj);
 
 	// int
 	// Get the Field ID of the instance variables "number"
 	jfieldID fidNumber = (*env)->GetFieldID(env, thisClass, "number", "I");
-	if (NULL == fidNumber) return;
+	if (NULL == fidNumber)
+		return;
 
 	// Get the int given the Field ID
 	jint number = (*env)->GetIntField(env, thisObj, fidNumber);
@@ -57,8 +56,10 @@ JNIEXPORT void JNICALL Java_noCodeSmell_NoCodeSmell_modifyInstanceVariable
 	(*env)->SetIntField(env, thisObj, fidNumber, number);
 
 	// Get the Field ID of the instance variables "message"
-	jfieldID fidMessage = (*env)->GetFieldID(env, thisClass, "message", "Ljava/lang/String;");
-	if (NULL == fidMessage) return;
+	jfieldID fidMessage = (*env)->GetFieldID(env, thisClass, "message",
+			"Ljava/lang/String;");
+	if (NULL == fidMessage)
+		return;
 
 	// String
 	// Get the object given the Field ID
@@ -66,14 +67,16 @@ JNIEXPORT void JNICALL Java_noCodeSmell_NoCodeSmell_modifyInstanceVariable
 
 	// Create a C-string with the JNI String
 	const char *cStr = (*env)->GetStringUTFChars(env, message, NULL);
-	if (NULL == cStr) return;
+	if (NULL == cStr)
+		return;
 
 	printf("In C, the string is %s\n", cStr);
 	(*env)->ReleaseStringUTFChars(env, message, cStr);
 
 	// Create a new C-string and assign to the JNI string
 	message = (*env)->NewStringUTF(env, "We are returning from C");
-	if (NULL == message) return;
+	if (NULL == message)
+		return;
 
 	// modify the instance variables
 	(*env)->SetObjectField(env, thisObj, fidMessage, message);
@@ -82,11 +85,12 @@ JNIEXPORT void JNICALL Java_noCodeSmell_NoCodeSmell_modifyInstanceVariable
 
 /************************** Array *****************************/
 
-JNIEXPORT jdoubleArray JNICALL Java_noCodeSmell_NoCodeSmell_sumAndAverage
-(JNIEnv *env, jobject thisObj, jintArray inJNIArray) {
+JNIEXPORT jdoubleArray JNICALL Java_noCodeSmell_NoCodeSmell_sumAndAverage(
+		JNIEnv *env, jobject thisObj, jintArray inJNIArray) {
 	// Step 1: Convert the incoming JNI jintarray to C's jint[]
 	jint *inCArray = (*env)->GetIntArrayElements(env, inJNIArray, NULL);
-	if (NULL == inCArray) return NULL;
+	if (NULL == inCArray)
+		return NULL;
 	jsize length = (*env)->GetArrayLength(env, inJNIArray);
 
 	// Step 2: Perform its intended operations
@@ -95,14 +99,15 @@ JNIEXPORT jdoubleArray JNICALL Java_noCodeSmell_NoCodeSmell_sumAndAverage
 	for (i = 0; i < length; i++) {
 		sum += inCArray[i];
 	}
-	jdouble average = (jdouble)sum / length;
+	jdouble average = (jdouble) sum / length;
 	(*env)->ReleaseIntArrayElements(env, inJNIArray, inCArray, 0); // release resources
 
-	jdouble outCArray[] = {sum, average};
+	jdouble outCArray[] = { sum, average };
 
 	// Step 3: Convert the C's Native jdouble[] to JNI jdoublearray, and return
 	jdoubleArray outJNIArray = (*env)->NewDoubleArray(env, 2);  // allocate
-	if (NULL == outJNIArray) return NULL;
-	(*env)->SetDoubleArrayRegion(env, outJNIArray, 0 , 2, outCArray);  // copy
+	if (NULL == outJNIArray)
+		return NULL;
+	(*env)->SetDoubleArrayRegion(env, outJNIArray, 0, 2, outCArray);  // copy
 	return outJNIArray;
 }

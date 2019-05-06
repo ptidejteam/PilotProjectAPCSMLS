@@ -15,16 +15,27 @@ public class UnusedImplementation {
 	}
 
 	public native void sayHelloJanuary();
+
 	public native void sayHelloFebruary();
+
 	public native void sayHelloMarch();
+
 	public native void sayHelloApril();
+
 	public native void sayHelloMay();
+
 	public native void sayHelloJune();
+
 	public native void sayHelloJuly();
+
 	public native void sayHelloAugust();
+
 	public native void sayHelloSeptember();
+
 	public native void sayHelloOctober();
+
 	public native void sayHelloNovember();
+
 	public native void sayHelloDecember();
 
 	public static void main(String[] args) {

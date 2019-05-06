@@ -5,25 +5,20 @@ import java.security.PrivilegedAction;
 
 public class UnusedParameters {
 
-
 	static {
-		AccessController.doPrivileged(
-			new PrivilegedAction <Void>()  {
-				public  Void  run ()   {
-					System.loadLibrary ("JNILIB"); // Code smell "Not using relative path"
-					return  null ;
-					}
-				});
-		}
+		AccessController.doPrivileged(new PrivilegedAction<Void>() {
+			public Void run() {
+				System.loadLibrary("JNILIB"); // Code smell "Not using relative path"
+				return null;
+			}
+		});
+	}
 
-	public native int distance(
-		int time, int speed,
-		int acceleration, int fuelVolume
-			);
+	public native int distance(int time, int speed, int acceleration, int fuelVolume);
 
 	public static void main(String args[]) {
 		UnusedParameters test = new UnusedParameters();
 
-		System.out.println("The distance is " + test.distance(3,2,1,5));	  
+		System.out.println("The distance is " + test.distance(3, 2, 1, 5));
 	}
 }

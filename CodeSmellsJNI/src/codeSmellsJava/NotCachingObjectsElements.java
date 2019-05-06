@@ -11,7 +11,7 @@ public class NotCachingObjectsElements {
 	int d = 4;
 	int e = 5;
 	int f = 6;
-	
+
 	static {
 		AccessController.doPrivileged(new PrivilegedAction<Void>() {
 			public Void run() {
@@ -20,13 +20,13 @@ public class NotCachingObjectsElements {
 			}
 		});
 	}
-	
+
 	public native int sumValues();
-	
+
 	public static void main(String args[]) {
 		NotCachingObjectsElements test = new NotCachingObjectsElements();
 
-		System.out.println("The sum is " + test.sumValues());	  
+		System.out.println("The sum is " + test.sumValues());
 	}
 
 }
