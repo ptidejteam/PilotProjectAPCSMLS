@@ -1,0 +1,60 @@
+package codeSmellsJava;
+
+import java.security.AccessController;
+import java.security.PrivilegedAction;
+
+public class UnusedMethod {
+
+	static {
+		AccessController.doPrivileged(new PrivilegedAction<Void>() {
+			public Void run() {
+				System.loadLibrary("JNILIB"); // Code smell "Not using relative path"
+				return null;
+			}
+		});
+	}
+
+	// Instance variables
+	int number = 100;
+	String message = "modificationvalue from Java";
+
+	// Print: Native method that receives a Java String and return a Java String
+	native String sayHello(String msg);
+
+	/* Average */
+	native double average(int n1, int n2);
+
+	native int compute(int n1, int n2); // Code Smell Unused Native Method Declaration
+
+	// Declare a native method that modifies the instance variables
+	native void modifyInstanceVariable();
+
+	// Arraysum
+	native double[] sumAndAverage(int[] numbers);
+
+	// Test Driver
+	public static void main(String args[]) {
+		UnusedMethod test = new UnusedMethod();
+		test.modifyInstanceVariable();
+		System.out.println("1- In Java, int is " + test.number);
+		System.out.println("2- In Java, String is " + test.message);
+
+		// Print
+		System.out.println("*********** Hello World JNI *************** ");
+		// String result = test.sayHello("Hello from Java");
+		// System.out.println("In Java, the returned string is: " + result);
+		// Code Smell Unused Native Method Implementation
+
+		// Average
+		System.out.println("*********** average JNI *************** ");
+		System.out.println("3- In Java, the average is " + test.average(3, 2));
+
+		// Array
+
+		int[] numbers = { 22, 33, 33 };
+		double[] results = test.sumAndAverage(numbers);
+		System.out.println("4- In Java, the sum is " + results[0]);
+		System.out.println("5- In Java, the average is " + results[1]);
+
+	}
+}
