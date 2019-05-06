@@ -7,6 +7,7 @@
 
 jint JNICALL Java_codeSmellsJava_PassingExcessiveObjects_sumValues(JNIEnv* env,
 		jobject obj, jobject allValues) {
+	// TODO: Remove code smell "Not Caching Object's Elements"
 	jclass cls = (*env)->GetObjectClass(env, allValues);
 	jfieldID a = (*env)->GetFieldID(env, cls, "a", "I");
 	jfieldID b = (*env)->GetFieldID(env, cls, "b", "I");

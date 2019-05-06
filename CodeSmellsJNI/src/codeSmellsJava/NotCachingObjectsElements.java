@@ -25,7 +25,7 @@ public class NotCachingObjectsElements {
 
 	public static void main(String args[]) {
 		NotCachingObjectsElements test = new NotCachingObjectsElements();
-		System.out.println("*********** Code Smell: Not Caching Object's Elements ***************");
+		System.out.println("*********** Code Smell: Not Caching Objects' Elements ***************");
 		System.out.println("The sum is " + test.sumValues());
 	}
 

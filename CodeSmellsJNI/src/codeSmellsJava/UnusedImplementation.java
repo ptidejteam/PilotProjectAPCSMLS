@@ -40,7 +40,7 @@ public class UnusedImplementation {
 
 	public static void main(String[] args) {
 		UnusedImplementation testImp = new UnusedImplementation();
-		System.out.println("*********** Code Smell: Unused Implementation ***************");
+		System.out.println("*********** Code Smell: Unused Native Method Implementation ***************");
 		testImp.sayHelloJanuary();
 		testImp.sayHelloFebruary();
 		testImp.sayHelloMarch();
