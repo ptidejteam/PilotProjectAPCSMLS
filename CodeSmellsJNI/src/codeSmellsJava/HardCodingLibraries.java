@@ -1,5 +1,7 @@
 package codeSmellsJava;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.security.AccessController;
 import java.security.PrivilegedAction;
 
@@ -8,11 +10,12 @@ public class HardCodingLibraries {
 	static {
 		AccessController.doPrivileged(new PrivilegedAction<Void>() {
 			public Void run() {
+				Path libDir = Paths.get("../CodeSmellsC/Release/").toAbsolutePath().normalize();
 				try {
-					System.loadLibrary("JNILIB");
+					System.load(libDir + "/JNILIB.so");
 				} catch (UnsatisfiedLinkError e1) {
 					try {
-						System.loadLibrary("JNILIB"); // some other library
+						System.load(libDir + "/JNILIB.dll");
 					} catch (UnsatisfiedLinkError e2) {
 					}
 				}
