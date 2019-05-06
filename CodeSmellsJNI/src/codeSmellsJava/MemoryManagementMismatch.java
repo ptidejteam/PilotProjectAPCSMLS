@@ -18,6 +18,7 @@ public class MemoryManagementMismatch {
 
 	public static void main(String args[]) {
 		MemoryManagementMismatch test = new MemoryManagementMismatch();
+		System.out.println("*********** Code Smell: Memory Management Mismatch ***************");
 		test.printStringInC("This String should be printed in C code.");
 	}
 }

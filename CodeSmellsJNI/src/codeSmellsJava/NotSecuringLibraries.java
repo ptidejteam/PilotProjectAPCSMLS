@@ -12,7 +12,7 @@ public class NotSecuringLibraries {
 
 	public static void main(String args[]) {
 		NotSecuringLibraries test = new NotSecuringLibraries();
-
+		System.out.println("*********** Code Smell: Not Securing Libraries ***************");
 		System.out.println("The distance is " + test.distance(3, 2));
 	}
 }

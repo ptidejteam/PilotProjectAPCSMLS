@@ -21,7 +21,7 @@ public class NotUsingRelativePath {
 
 	public static void main(String args[]) {
 		NotUsingRelativePath test = new NotUsingRelativePath();
-
+		System.out.println("*********** Code Smell: Not Using Relative Path to Load the Library ***************");
 		System.out.println("The distance is " + test.distance(3, 2));
 	}
 }

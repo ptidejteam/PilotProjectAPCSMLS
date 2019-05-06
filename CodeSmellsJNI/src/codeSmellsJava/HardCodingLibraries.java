@@ -25,7 +25,7 @@ public class HardCodingLibraries {
 
 	public static void main(String args[]) {
 		HardCodingLibraries test = new HardCodingLibraries();
-
+		System.out.println("*********** Code Smell: Hard Coding Libraries ***************");
 		System.out.println("The distance is " + test.distance(3, 2));
 	}
 }

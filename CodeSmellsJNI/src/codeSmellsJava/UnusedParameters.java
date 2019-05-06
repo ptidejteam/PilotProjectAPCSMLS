@@ -18,7 +18,7 @@ public class UnusedParameters {
 
 	public static void main(String args[]) {
 		UnusedParameters test = new UnusedParameters();
-
+		System.out.println("*********** Code Smell: Unused Parameter ***************");
 		System.out.println("The distance is " + test.distance(3, 2, 1, 5));
 	}
 }

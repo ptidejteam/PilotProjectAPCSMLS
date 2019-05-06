@@ -27,6 +27,7 @@ public class PassingExcessiveObjects {
 
 	public static void main(String args[]) {
 		PassingExcessiveObjects test = new PassingExcessiveObjects();
+		System.out.println("*********** Code Smell: Passing Excessive Objects ***************");
 		NestedClass nested = test.new NestedClass();
 		System.out.println("The sum is " + test.sumValues(nested));
 	}

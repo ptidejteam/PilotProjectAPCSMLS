@@ -35,25 +35,24 @@ public class NoCodeSmell {
 	// Test Driver   
 	public static void main(String args[]) {
 		NoCodeSmell test = new NoCodeSmell();
+		System.out.println("*********** No Code Smell ***************");
 		test.modifyInstanceVariable();
 		System.out.println("1- In Java, int is " + test.number);
 		System.out.println("2- In Java, String is " + test.message);
 
-		// Print 
-		System.out.println("*********** Hello World JNI *************** ");
+		// Print
 		String result = test.sayHello("Hello from Java");
-		System.out.println("In Java, the returned string is: " + result);
+		System.out.println("3- In Java, the returned string is: " + result);
 
 		// Average
-		System.out.println("*********** average JNI *************** ");
-		System.out.println("3- In Java, the average is " + test.average(3, 2));	    
+		System.out.println("4- In Java, the average is " + test.average(3, 2));	    
 
 
 		// Array 
 		int[] numbers = {22, 33, 33};
 		double[] results = test.sumAndAverage(numbers);
-		System.out.println("4- In Java, the sum is " + results[0]);
-		System.out.println("5- In Java, the average is " + results[1]);
+		System.out.println("5- In Java, the sum is " + results[0]);
+		System.out.println("6- In Java, the average is " + results[1]);
 
 	}
 }
