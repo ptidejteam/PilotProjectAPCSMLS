@@ -16,17 +16,15 @@ public class LocalReferencesAbuse {
 		});
 	}
 
-	public native int goThroughArray(Integer[] numbers);
+	public native void goThroughArray(Integer[] numbers);
 
 	public static void main(String args[]) {
 		LocalReferencesAbuse test = new LocalReferencesAbuse();
+		System.out.println("*********** Code Smell: Local References Abuse *************** ");
 		int length = 100;
 		Integer[] numbers = new Integer[length];
 		for (int i = 0; i < length; i++)
 			numbers[i] = i;
-		if (test.goThroughArray(numbers) == 0)
-			System.out.println("Test of code smell \"Local References Abuse\"");
-		else
-			System.out.println("Problem in test of code smell \"Local References Abuse\"");
+		test.goThroughArray(numbers);
 	}
 }
