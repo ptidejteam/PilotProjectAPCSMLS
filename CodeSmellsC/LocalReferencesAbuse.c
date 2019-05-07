@@ -1,15 +1,19 @@
 #include <jni.h>
 #include <stdio.h>
 
-#include "..\CodeSmellsJNI\bin\codeSmellsJava_LocalReferencesAbuse.h"
+#include "..\CodeSmellsJNI\bin\headers\codeSmellsJava_LocalReferencesAbuse.h"
 
-void JNICALL Java_codeSmellsJava_LocalReferencesAbuse_goThroughArray(
+jint JNICALL Java_codeSmellsJava_LocalReferencesAbuse_isAnyElementNull(
 		JNIEnv *env, jobject thisObject, jobjectArray anArray) {
 	jsize length = (*env)->GetArrayLength(env, anArray);
 	for (int i = 0; i < length; i++) {
 		jobject element = (*env)->GetObjectArrayElement(env, anArray, i);
 		if ((*env)->ExceptionOccurred(env)) {
-			break;
+			return -1;
+		}
+		if (element == NULL) {
+			return 1;
 		}
 	}
+	return 0;
 }
