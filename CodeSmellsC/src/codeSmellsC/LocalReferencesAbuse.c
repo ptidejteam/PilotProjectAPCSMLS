@@ -1,7 +1,7 @@
 #include <jni.h>
 #include <stdio.h>
 
-#include "..\CodeSmellsJNI\bin\headers\codeSmellsJava_LocalReferencesAbuse.h"
+#include "..\..\..\CodeSmellsJNI\bin\headers\codeSmellsJava_LocalReferencesAbuse.h"
 
 jint JNICALL Java_codeSmellsJava_LocalReferencesAbuse_isAnyElementNull(
 		JNIEnv *env, jobject thisObject, jobjectArray anArray) {

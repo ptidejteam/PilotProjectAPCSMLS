@@ -1,7 +1,7 @@
 #include <jni.h>
 #include <stdio.h>
 
-#include "..\CodeSmellsJNI\bin\codeSmellsJava_MemoryManagementMismatch.h"
+#include "..\..\..\CodeSmellsJNI\bin\headers\codeSmellsJava_MemoryManagementMismatch.h"
 
 JNIEXPORT void JNICALL Java_codeSmellsJava_MemoryManagementMismatch_printStringInC(
 		JNIEnv *env, jobject thisObj, jstring inJNIStr) {

@@ -1,9 +1,12 @@
-// Source: https://www.ibm.com/developerworks/library/j-jni/index.html
+/*
+ * Source:
+ * https://www.ibm.com/developerworks/library/j-jni/index.html
+ */
 
 #include <jni.h>
 #include <stdio.h>
 
-#include "..\CodeSmellsJNI\bin\codeSmellsJava_NotCachingObjectsElements.h"
+#include "..\..\..\CodeSmellsJNI\bin\headers\codeSmellsJava_NotCachingObjectsElements.h"
 
 jint JNICALL Java_codeSmellsJava_NotCachingObjectsElements_sumValues(
 		JNIEnv* env, jobject obj) {

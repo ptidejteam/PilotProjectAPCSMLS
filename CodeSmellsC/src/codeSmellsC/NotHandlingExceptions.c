@@ -1,9 +1,13 @@
-// Source: https://www3.ntu.edu.sg/home/ehchua/programming/java/JavaNativeInterface.html
+/*
+ * Source:
+ * https://www3.ntu.edu.sg/home/ehchua/programming/java/JavaNativeInterface.html
+ */
+
 #include <jni.h>
 #include <stdio.h>
 #include <string.h>
 
-#include "..\CodeSmellsJNI\bin\codeSmellsJava_NotHandlingExceptions.h"
+#include "..\..\..\CodeSmellsJNI\bin\headers\codeSmellsJava_NotHandlingExceptions.h"
 
 JNIEXPORT jchar JNICALL Java_codeSmellsJava_NotHandlingExceptions_getCharField(
 		JNIEnv *env, jobject obj, jstring fieldName) {

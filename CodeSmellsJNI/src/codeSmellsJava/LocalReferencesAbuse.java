@@ -27,9 +27,9 @@ public class LocalReferencesAbuse {
 			numbers[i] = i;
 		numbers[length - 1] = null;
 		int nullElement = test.isAnyElementNull(numbers);
-		if(nullElement == -1)
+		if (nullElement == -1)
 			System.out.println("An exception occurred while going through the array.");
-		else if(nullElement == 0)
+		else if (nullElement == 0)
 			System.out.println("There is no null element in the array.");
 		else
 			System.out.println("There is a null element in the array.");

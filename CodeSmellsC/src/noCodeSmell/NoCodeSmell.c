@@ -1,7 +1,7 @@
 #include <jni.h>
 #include <stdio.h>
 
-#include "..\CodeSmellsJNI\bin\noCodeSmell_NoCodeSmell.h"
+#include "..\..\..\CodeSmellsJNI\bin\headers\noCodeSmell_NoCodeSmell.h"
 
 /****************************************** Sayhello ******************************/
 
@@ -28,7 +28,7 @@ JNIEXPORT jstring JNICALL Java_noCodeSmell_NoCodeSmell_sayHello(JNIEnv *env,
 JNIEXPORT jdouble JNICALL Java_noCodeSmell_NoCodeSmell_average(JNIEnv *env,
 		jobject thisObj, jint n1, jint n2) {
 	jdouble result;
-	printf("In C, the numbers are %d and %d\n", n1, n2);
+	printf("In C, the numbers are %ld and %ld\n", n1, n2);
 	result = ((jdouble) n1 + n2) / 2.0;
 	// jint is mapped to int, jdouble is mapped to double
 	return result;
@@ -49,7 +49,7 @@ JNIEXPORT void JNICALL Java_noCodeSmell_NoCodeSmell_modifyInstanceVariable(
 
 	// Get the int given the Field ID
 	jint number = (*env)->GetIntField(env, thisObj, fidNumber);
-	printf("In C, the int is %d\n", number);
+	printf("In C, the int is %ld\n", number);
 
 	// Change the variable
 	number = 99;

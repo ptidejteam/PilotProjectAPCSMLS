@@ -6,7 +6,7 @@
 #include <jni.h>
 #include <stdio.h>
 
-#include "..\CodeSmellsJNI\bin\codeSmellsJava_PassingExcessiveObjects.h"
+#include "..\..\..\CodeSmellsJNI\bin\headers\codeSmellsJava_PassingExcessiveObjects.h"
 
 /**************************************************************
  * Static Global Variables to cache Java Class and Method IDs

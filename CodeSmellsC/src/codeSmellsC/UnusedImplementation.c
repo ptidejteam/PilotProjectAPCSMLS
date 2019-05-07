@@ -1,7 +1,7 @@
 #include <jni.h>
 #include <stdio.h>
 
-#include "..\CodeSmellsJNI\bin\codeSmellsJava_UnusedImplementation.h"
+#include "..\..\..\CodeSmellsJNI\bin\headers\codeSmellsJava_UnusedImplementation.h"
 
 JNIEXPORT void JNICALL Java_codeSmellsJava_UnusedImplementation_sayHelloJanuary(
 		JNIEnv *env, jobject obj) {

@@ -7,7 +7,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "..\CodeSmellsJNI\bin\codeSmellsJava_AssumingSelfMultiLanguageReturnValues.h"
+#include "..\..\..\CodeSmellsJNI\bin\headers\codeSmellsJava_AssumingSelfMultiLanguageReturnValues.h"
 
 JNIEXPORT void JNICALL Java_codeSmellsJava_AssumingSelfMultiLanguageReturnValues_callMethodOutputFromClass(
 		JNIEnv *env, jobject obj) {
