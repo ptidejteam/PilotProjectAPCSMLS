@@ -20,15 +20,15 @@ public class PassingExcessiveObjects {
 		public int federalTax = 250;
 		public int stateTax = 300;
 		public String name = "John Doe";
-	}
 
-	public native int getNettoSalary(User user);
+		public native int getNettoSalary();
+	}
 
 	public static void main(String args[]) {
 		PassingExcessiveObjects test = new PassingExcessiveObjects();
 		User aUser = test.new User();
-		System.out.println("*********** Code Smell: Passing Excessive Objects 2 ***************");
-		System.out.println("The salary is " + test.getNettoSalary(aUser));
+		System.out.println("*********** Code Smell: Passing Excessive Objects ***************");
+		System.out.println("The salary is " + aUser.getNettoSalary());
 	}
 
 }
