@@ -5,13 +5,6 @@ import java.security.PrivilegedAction;
 
 public class NotCachingObjectsElements {
 
-	int a = 1;
-	int b = 2;
-	int c = 3;
-	int d = 4;
-	int e = 5;
-	int f = 6;
-
 	static {
 		AccessController.doPrivileged(new PrivilegedAction<Void>() {
 			public Void run() {
@@ -21,12 +14,22 @@ public class NotCachingObjectsElements {
 		});
 	}
 
-	public native int sumValues();
+	private class User {
+		public int group;
+
+		public native void setGroup(int g);
+
+		public native void checkGroup();
+	}
 
 	public static void main(String args[]) {
 		NotCachingObjectsElements test = new NotCachingObjectsElements();
+		User aUser = test.new User();
+		User anotherUser = test.new User();
 		System.out.println("*********** Code Smell: Not Caching Objects' Elements ***************");
-		System.out.println("The sum is " + test.sumValues());
+		aUser.setGroup(2);
+		aUser.checkGroup();
+		anotherUser.checkGroup();
 	}
 
 }
