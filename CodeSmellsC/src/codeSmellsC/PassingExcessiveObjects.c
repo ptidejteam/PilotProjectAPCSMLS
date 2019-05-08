@@ -11,13 +11,10 @@
 /**************************************************************
  * Static Global Variables to cache Java Class and Method IDs
  **************************************************************/
-static jclass JC_PassingExcessiveObjects;
-static jfieldID JMID_PEO_a;
-static jfieldID JMID_PEO_b;
-static jfieldID JMID_PEO_c;
-static jfieldID JMID_PEO_d;
-static jfieldID JMID_PEO_e;
-static jfieldID JMID_PEO_f;
+static jclass JC_PassingExcessiveObjects_User;
+static jfieldID JMID_PEO_brutto;
+static jfieldID JMID_PEO_federal;
+static jfieldID JMID_PEO_state;
 
 /**************************************************************
  * Declare JNI_VERSION for use in JNI_Onload/JNI_OnUnLoad
@@ -37,22 +34,23 @@ jint JNI_OnLoad(JavaVM* vm, void* reserved) {
 	jclass tempLocalClassRef;
 
 	tempLocalClassRef = (*env)->FindClass(env,
-			"codeSmellsJava/PassingExcessiveObjects");
+			"codeSmellsJava/PassingExcessiveObjects$User");
 	if ((*env)->ExceptionCheck(env)) {
 		return JNI_ERR;
 	}
 
-	JC_PassingExcessiveObjects = (jclass) (*env)->NewGlobalRef(env,
+	JC_PassingExcessiveObjects_User = (jclass) (*env)->NewGlobalRef(env,
 			tempLocalClassRef);
 
 	(*env)->DeleteLocalRef(env, tempLocalClassRef);
 
-	JMID_PEO_a = (*env)->GetFieldID(env, JC_PassingExcessiveObjects, "a", "I");
-	JMID_PEO_b = (*env)->GetFieldID(env, JC_PassingExcessiveObjects, "b", "I");
-	JMID_PEO_c = (*env)->GetFieldID(env, JC_PassingExcessiveObjects, "c", "I");
-	JMID_PEO_d = (*env)->GetFieldID(env, JC_PassingExcessiveObjects, "d", "I");
-	JMID_PEO_e = (*env)->GetFieldID(env, JC_PassingExcessiveObjects, "e", "I");
-	JMID_PEO_f = (*env)->GetFieldID(env, JC_PassingExcessiveObjects, "f", "I");
+	JMID_PEO_brutto = (*env)->GetFieldID(env, JC_PassingExcessiveObjects_User,
+			"bruttoSalary", "I");
+	JMID_PEO_federal = (*env)->GetFieldID(env, JC_PassingExcessiveObjects_User,
+			"federalTax", "I");
+	JMID_PEO_state = (*env)->GetFieldID(env, JC_PassingExcessiveObjects_User,
+			"stateTax", "I");
+
 	if ((*env)->ExceptionCheck(env)) {
 		return JNI_ERR;
 	}
@@ -66,16 +64,13 @@ jint JNI_OnLoad(JavaVM* vm, void* reserved) {
 void JNI_OnUnload(JavaVM *vm, void *reserved) {
 	JNIEnv* env;
 	(*vm)->GetEnv(vm, (void**) &env, JNI_VERSION);
-	(*env)->DeleteGlobalRef(env, JC_PassingExcessiveObjects);
+	(*env)->DeleteGlobalRef(env, JC_PassingExcessiveObjects_User);
 }
 
-jint JNICALL Java_codeSmellsJava_PassingExcessiveObjects_sumValues(JNIEnv* env,
-		jobject obj, jobject allValues) {
-	jint avalue = (*env)->GetIntField(env, allValues, JMID_PEO_a);
-	jint bvalue = (*env)->GetIntField(env, allValues, JMID_PEO_b);
-	jint cvalue = (*env)->GetIntField(env, allValues, JMID_PEO_c);
-	jint dvalue = (*env)->GetIntField(env, allValues, JMID_PEO_d);
-	jint evalue = (*env)->GetIntField(env, allValues, JMID_PEO_e);
-	jint fvalue = (*env)->GetIntField(env, allValues, JMID_PEO_f);
-	return avalue + bvalue + cvalue + dvalue + evalue + fvalue;
+jint JNICALL Java_codeSmellsJava_PassingExcessiveObjects_getNettoSalary(
+		JNIEnv *env, jobject thisObject, jobject user) {
+	jint brutto = (*env)->GetIntField(env, user, JMID_PEO_brutto);
+	jint federal = (*env)->GetIntField(env, user, JMID_PEO_federal);
+	jint state = (*env)->GetIntField(env, user, JMID_PEO_state);
+	return brutto - federal - state;
 }

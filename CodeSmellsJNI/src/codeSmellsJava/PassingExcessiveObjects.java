@@ -1,3 +1,4 @@
+
 package codeSmellsJava;
 
 import java.security.AccessController;
@@ -14,22 +15,20 @@ public class PassingExcessiveObjects {
 		});
 	}
 
-	int a = 1;
-	int b = 2;
-	int c = 3;
-	int d = 4;
-	int e = 5;
-	int f = 6;
+	private class User {
+		public int bruttoSalary = 2000;
+		public int federalTax = 250;
+		public int stateTax = 300;
+		public String name = "John Doe";
+	}
 
-	public native int sumValues(PassingExcessiveObjects anObject);
+	public native int getNettoSalary(User user);
 
 	public static void main(String args[]) {
-		PassingExcessiveObjects test1 = new PassingExcessiveObjects();
-		PassingExcessiveObjects test2 = new PassingExcessiveObjects();
-		System.out.println("*********** Code Smell: Passing Excessive Objects ***************");
-		System.out.println("The sum is " + test1.sumValues(test1));
-		test2.a += 100;
-		System.out.println("The sum is " + test1.sumValues(test2));
+		PassingExcessiveObjects test = new PassingExcessiveObjects();
+		User aUser = test.new User();
+		System.out.println("*********** Code Smell: Passing Excessive Objects 2 ***************");
+		System.out.println("The salary is " + test.getNettoSalary(aUser));
 	}
 
 }
