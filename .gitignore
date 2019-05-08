@@ -57,7 +57,17 @@ Mkfile.old
 dkms.conf
 
 ### Eclipse ###
-.metadata
+
+## Include config files (external tools and run configurations)
+!.metadata/
+.metadata/*
+!.metadata/.plugins/
+.metadata/.plugins/*
+!.metadata/.plugins/org.eclipse.debug.core/
+.metadata/.plugins/org.eclipse.debug.core/*
+!.metadata/.plugins/org.eclipse.debug.core/.launches
+
+#.metadata
 bin/
 tmp/
 *.tmp
