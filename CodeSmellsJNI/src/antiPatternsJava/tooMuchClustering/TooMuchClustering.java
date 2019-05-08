@@ -1,9 +1,9 @@
-package antiPatternsJava;
+package antiPatternsJava.tooMuchClustering;
 
 import java.nio.ByteBuffer;
 import java.nio.CharBuffer;
 
-public class Clustering {
+public class TooMuchClustering {
 
 	/** This Class contains Occurrence of Too Much Clustering AntiPattern ****/
 

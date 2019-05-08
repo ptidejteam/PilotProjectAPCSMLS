@@ -1,4 +1,4 @@
-package antiPatternsJava.scatter;
+package antiPatternsJava.tooMuchScattering;
 
 public class Image {
 	public byte[] pixels;

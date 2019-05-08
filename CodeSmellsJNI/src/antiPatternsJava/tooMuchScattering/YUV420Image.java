@@ -1,4 +1,4 @@
-package antiPatternsJava.scatter;
+package antiPatternsJava.tooMuchScattering;
 
 public class YUV420Image extends Image {
 	public native RGB888Image toRgb888();
