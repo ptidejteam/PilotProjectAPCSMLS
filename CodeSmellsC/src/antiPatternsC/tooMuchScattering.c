@@ -7,8 +7,9 @@
 
 void copyWidthHeight(JNIEnv *env, jclass imageClass, jobject thisImage,
 		jobject image) {
-	const char*fields[] = { "width", "height" };
-	for (int i = 0; i < 2; i++) {
+	const char *fields[] = { "width", "height" };
+	int i;
+	for (i = 0; i < 2; i++) {
 		jfieldID field = (*env)->GetFieldID(env, imageClass, fields[i], "I");
 		jint value = (*env)->GetIntField(env, thisImage, field);
 		(*env)->SetIntField(env, image, field, value);
@@ -16,7 +17,7 @@ void copyWidthHeight(JNIEnv *env, jclass imageClass, jobject thisImage,
 }
 
 JNIEXPORT jobject JNICALL Java_antiPatternsJava_tooMuchScattering_RGB888Image_toYuv420(
-		JNIEnv*env, jobject thisImage) {
+		JNIEnv *env, jobject thisImage) {
 	jclass imageClass = (*env)->FindClass(env,
 			"antiPatternsJava/tooMuchScattering/YUV420Image");
 	jobject image = (*env)->AllocObject(env, imageClass);
@@ -25,7 +26,7 @@ JNIEXPORT jobject JNICALL Java_antiPatternsJava_tooMuchScattering_RGB888Image_to
 }
 
 JNIEXPORT jobject JNICALL Java_antiPatternsJava_tooMuchScattering_RGB888Image_toYuv444(
-		JNIEnv*env, jobject thisImage) {
+		JNIEnv *env, jobject thisImage) {
 	jclass imageClass = (*env)->FindClass(env,
 			"antiPatternsJava/tooMuchScattering/YUV444Image");
 	jobject image = (*env)->AllocObject(env, imageClass);
@@ -34,7 +35,7 @@ JNIEXPORT jobject JNICALL Java_antiPatternsJava_tooMuchScattering_RGB888Image_to
 }
 
 JNIEXPORT jobject JNICALL Java_antiPatternsJava_tooMuchScattering_YUV420Image_toRgb888(
-		JNIEnv*env, jobject thisImage) {
+		JNIEnv *env, jobject thisImage) {
 	jclass imageClass = (*env)->FindClass(env,
 			"antiPatternsJava/tooMuchScattering/RGB888Image");
 	jobject image = (*env)->AllocObject(env, imageClass);
@@ -43,7 +44,7 @@ JNIEXPORT jobject JNICALL Java_antiPatternsJava_tooMuchScattering_YUV420Image_to
 }
 
 JNIEXPORT jobject JNICALL Java_antiPatternsJava_tooMuchScattering_YUV420Image_toYuv444(
-		JNIEnv*env, jobject thisImage) {
+		JNIEnv *env, jobject thisImage) {
 	jclass imageClass = (*env)->FindClass(env,
 			"antiPatternsJava/tooMuchScattering/YUV444Image");
 	jobject image = (*env)->AllocObject(env, imageClass);
@@ -52,7 +53,7 @@ JNIEXPORT jobject JNICALL Java_antiPatternsJava_tooMuchScattering_YUV420Image_to
 }
 
 JNIEXPORT jobject JNICALL Java_antiPatternsJava_tooMuchScattering_YUV444Image_toRgb888(
-		JNIEnv*env, jobject thisImage) {
+		JNIEnv *env, jobject thisImage) {
 	jclass imageClass = (*env)->FindClass(env,
 			"antiPatternsJava/tooMuchScattering/RGB888Image");
 	jobject image = (*env)->AllocObject(env, imageClass);
@@ -61,7 +62,7 @@ JNIEXPORT jobject JNICALL Java_antiPatternsJava_tooMuchScattering_YUV444Image_to
 }
 
 JNIEXPORT jobject JNICALL Java_antiPatternsJava_tooMuchScattering_YUV444Image_toYuv420(
-		JNIEnv*env, jobject thisImage) {
+		JNIEnv *env, jobject thisImage) {
 	jclass imageClass = (*env)->FindClass(env,
 			"antiPatternsJava/tooMuchScattering/YUV420Image");
 	jobject image = (*env)->AllocObject(env, imageClass);

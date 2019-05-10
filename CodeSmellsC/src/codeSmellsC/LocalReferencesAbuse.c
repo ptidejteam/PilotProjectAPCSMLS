@@ -6,7 +6,8 @@
 jint JNICALL Java_codeSmellsJava_LocalReferencesAbuse_isAnyElementNull(
 		JNIEnv *env, jobject thisObject, jobjectArray anArray) {
 	jsize length = (*env)->GetArrayLength(env, anArray);
-	for (int i = 0; i < length; i++) {
+	int i;
+	for (i = 0; i < length; i++) {
 		jobject element = (*env)->GetObjectArrayElement(env, anArray, i);
 		if ((*env)->ExceptionOccurred(env)) {
 			return -1;
