@@ -67,6 +67,7 @@ dkms.conf
 .metadata/.plugins/org.eclipse.debug.core/*
 !.metadata/.plugins/org.eclipse.debug.core/.launches
 
+
 #.metadata
 bin/
 tmp/

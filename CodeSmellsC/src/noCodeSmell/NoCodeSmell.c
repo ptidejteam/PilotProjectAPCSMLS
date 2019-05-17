@@ -30,7 +30,6 @@ JNIEXPORT jdouble JNICALL Java_noCodeSmell_NoCodeSmell_average(JNIEnv *env,
 	jdouble result;
 	printf("In C, the numbers are %ld and %ld\n", n1, n2);
 	result = ((jdouble) n1 + n2) / 2.0;
-	// jint is mapped to int, jdouble is mapped to double
 	return result;
 }
 
@@ -74,7 +73,7 @@ JNIEXPORT void JNICALL Java_noCodeSmell_NoCodeSmell_modifyInstanceVariable(
 	(*env)->ReleaseStringUTFChars(env, message, cStr);
 
 	// Create a new C-string and assign to the JNI string
-	message = (*env)->NewStringUTF(env, "We are returning from C");
+	message = (*env)->NewStringUTF(env, "Hello from C");
 	if (NULL == message)
 		return;
 

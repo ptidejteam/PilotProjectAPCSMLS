@@ -9,7 +9,7 @@ JNIEXPORT jobject JNICALL Java_antiPatternsJava_unnecessaryUseOfMultiLanguagePro
 			"antiPatternsJava/unnecessaryUseOfMultiLanguageProgramming/User");
 	jobject newUser = (*env)->AllocObject(env, userClass);
 	// Get the User fields to be set jfieldID
-	jstring nameField = (*env)->GetFieldID(env, userClass, "name",
+	jfieldID nameField = (*env)->GetFieldID(env, userClass, "name",
 			"Ljava/lang/String;");
 	jfieldID balanceField = (*env)->GetFieldID(env, userClass, "balance", "D");
 	(*env)->SetObjectField(env, newUser, nameField, name);

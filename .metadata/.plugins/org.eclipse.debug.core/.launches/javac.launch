@@ -6,5 +6,5 @@
     </listAttribute>
     <stringAttribute key="org.eclipse.ui.externaltools.ATTR_LAUNCH_CONFIGURATION_BUILD_SCOPE" value="${none}"/>
     <stringAttribute key="org.eclipse.ui.externaltools.ATTR_LOCATION" value="C:\Program Files\Java\jdk-12.0.1\bin\javac.exe"/>
-    <stringAttribute key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="-d ${project_loc}/bin/ -h ${project_loc}/bin/headers/ ${resource_loc}"/>
+    <stringAttribute key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="-d &quot;${project_loc}/bin/&quot; -h &quot;${project_loc}/bin/headers/&quot; &quot;${resource_loc}&quot;"/>
 </launchConfiguration>

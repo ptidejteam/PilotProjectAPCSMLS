@@ -18,7 +18,7 @@ public class ExcessiveInterLanguageCommunication {
 	public static void main(String args[]) {
 		ExcessiveInterLanguageCommunication test = new ExcessiveInterLanguageCommunication();
 		System.out.println("*********** Anti-Pattern: Excessive Inter-language Communication ***************");
-		int max = 10;
+		int max = 100;
 		int sumOfSquares = 0;
 		for (int i = 1; i < max; i++)
 			sumOfSquares += test.square(i);
