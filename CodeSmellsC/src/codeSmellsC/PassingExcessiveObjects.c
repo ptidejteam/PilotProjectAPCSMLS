@@ -6,7 +6,7 @@
 #include <jni.h>
 #include <stdio.h>
 
-#include "..\..\..\CodeSmellsJNI\bin\headers\codeSmellsJava_PassingExcessiveObjects_User.h"
+#include "..\..\..\CodeSmellsJNI\bin\headers\codeSmellsJava_PassingExcessiveObjects.h"
 
 /**************************************************************
  * Static Global Variables to cache Java Class and Method IDs
@@ -67,8 +67,8 @@ void JNI_OnUnload(JavaVM *vm, void *reserved) {
 	(*env)->DeleteGlobalRef(env, JC_PassingExcessiveObjects_User);
 }
 
-jint JNICALL Java_codeSmellsJava_PassingExcessiveObjects_00024User_getNettoSalary(
-		JNIEnv *env, jobject user) {
+jint JNICALL Java_codeSmellsJava_PassingExcessiveObjects_getNettoSalary(
+		JNIEnv *env, jobject obj, jobject user) {
 	jint brutto = (*env)->GetIntField(env, user, JMID_PEO_brutto);
 	jint federal = (*env)->GetIntField(env, user, JMID_PEO_federal);
 	jint state = (*env)->GetIntField(env, user, JMID_PEO_state);
