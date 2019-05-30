@@ -13,9 +13,9 @@ public class AssumingSelfMultiLanguageReturnValues {
 		});
 	}
 
-	public static void output() {
-		System.out.println("Output from class");
-	}
+//	public static void output() {
+//		System.out.println("Output from class");
+//	}
 
 	public native void callMethodOutputFromClass();
 

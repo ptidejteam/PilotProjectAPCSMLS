@@ -12,6 +12,8 @@ public class NotUsingRelativePath {
 			public Void run() {
 				Path lib = Paths.get("../CodeSmellsC/Release/JNILIB.dll").toAbsolutePath().normalize();
 				System.load(lib.toString());
+
+				System.load("C:/Users/User/Ptidej-v5/MLS SAD Tests/rsc/CodeSmellsC/Release/JNILIB.dll");
 				return null;
 			}
 		});

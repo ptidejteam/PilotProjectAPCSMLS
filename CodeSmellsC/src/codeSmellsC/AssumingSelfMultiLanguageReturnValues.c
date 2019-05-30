@@ -11,6 +11,6 @@ JNIEXPORT void JNICALL Java_codeSmellsJava_AssumingSelfMultiLanguageReturnValues
 		JNIEnv *env, jobject obj) {
 	jclass clazz = (*env)->FindClass(env,
 			"codeSmellsJava/AssumingSelfMultiLanguageReturnValues");
-	jmethodID method = (*env)->GetStaticMethodID(env, clazz, "output", "()V");
+	jmethodID method = (*env)->GetStaticMethodID(env, clazz, "output", "()V"); // Method not existing
 	(*env)->CallStaticVoidMethod(env, clazz, method, NULL);
 }

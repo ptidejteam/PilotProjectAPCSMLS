@@ -9,7 +9,10 @@ jint JNICALL Java_codeSmellsJava_LocalReferencesAbuse_isAnyElementNull(
 	int i;
 	for (i = 0; i < length; i++) {
 		jobject element = (*env)->GetObjectArrayElement(env, anArray, i);
+		jobject element2 = (*env)->GetObjectArrayElement(env, anArray, i);
+		(*env)->DeleteLocalRef(env, element2);
 		if ((*env)->ExceptionOccurred(env)) {
+			(*env)->ExceptionClear();
 			return -1;
 		}
 		if (element == NULL) {
