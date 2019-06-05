@@ -3,7 +3,7 @@ package antiPatternsJava.excessiveInterLanguageCommunication;
 import java.security.AccessController;
 import java.security.PrivilegedAction;
 
-public class ExcessiveInterLanguageCommunication {
+public class ExcessiveInterLanguageCommunication3 {
 	static {
 		AccessController.doPrivileged(new PrivilegedAction<Void>() {
 			public Void run() {
@@ -15,16 +15,14 @@ public class ExcessiveInterLanguageCommunication {
 
 	public native int square(int n);
 
-	public static void main(String args[]) {
-		ExcessiveInterLanguageCommunication test = new ExcessiveInterLanguageCommunication();
-		System.out.println("*********** Anti-Pattern: Excessive Inter-language Communication ***************");
-		int max = 100;
-		int sumOfSquares = 0;
-		
-		// FIRST CASE Too many calls to the same method (in a loop)
-		for (int i = 1; i < max; i++)
-			sumOfSquares += test.square(i);
+	public native int factorial(int n);
 
-		System.out.println("The sum of the squares from 0 to " + max + " is " + sumOfSquares);
+	public static void main(String args[]) {
+		ExcessiveInterLanguageCommunication3 test = new ExcessiveInterLanguageCommunication3();
+		System.out.println("*********** Anti-Pattern: Excessive Inter-language Communication ***************");
+		int n = 5;
+		int result = test.square(i) + test.factorial(i);
+
+		System.out.println(n + "^2 + " + n + "! is " + result);
 	}
 }
