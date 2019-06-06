@@ -21,7 +21,7 @@ public class ExcessiveInterLanguageCommunication3 {
 		ExcessiveInterLanguageCommunication3 test = new ExcessiveInterLanguageCommunication3();
 		System.out.println("*********** Anti-Pattern: Excessive Inter-language Communication ***************");
 		int n = 5;
-		int result = test.square(i) + test.factorial(i);
+		int result = test.square(n) + test.factorial(n);
 
 		System.out.println(n + "^2 + " + n + "! is " + result);
 	}
