@@ -49,7 +49,7 @@ public class NoCodeSmell {
 
 
 		// Array 
-		int[] numbers = {22, 33, 33};
+		int[] numbers = {11, 22, 33};
 		double[] results = test.sumAndAverage(numbers);
 		System.out.println("5- In Java, the sum is " + results[0]);
 		System.out.println("6- In Java, the average is " + results[1]);

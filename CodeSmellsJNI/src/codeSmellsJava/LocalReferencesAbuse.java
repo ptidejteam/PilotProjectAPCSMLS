@@ -5,8 +5,6 @@ import java.security.PrivilegedAction;
 
 public class LocalReferencesAbuse {
 
-	int[] anArray = new int[1000];
-
 	static {
 		AccessController.doPrivileged(new PrivilegedAction<Void>() {
 			public Void run() {
