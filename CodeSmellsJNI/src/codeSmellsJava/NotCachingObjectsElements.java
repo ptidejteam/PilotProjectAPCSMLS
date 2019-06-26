@@ -27,7 +27,8 @@ public class NotCachingObjectsElements {
 		User aUser = test.new User();
 		User anotherUser = test.new User();
 		System.out.println("*********** Code Smell: Not Caching Objects' Elements ***************");
-		aUser.setGroup(2);
+		for (int i = 0; i < 10; i++)
+			aUser.setGroup(i);
 		aUser.checkGroup();
 		anotherUser.checkGroup();
 	}
